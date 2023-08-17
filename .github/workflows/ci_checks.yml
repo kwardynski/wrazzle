@@ -86,11 +86,3 @@ jobs:
 
     - name: Run Tests
       run: mix coveralls --warnings-as-errors
-
-    - name: Publish Test Report
-      uses: mikepenz/action-junit-report@v3
-      if: success() || failure()
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        report_paths: '**/cover/test-report.xml'
-        test_files_prefix: true
