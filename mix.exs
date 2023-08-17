@@ -9,7 +9,13 @@ defmodule Wrazzle.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        "ci.checks": :test,
+        coveralls: :test,
+        "coveralls.html": :test
+      ]
     ]
   end
 
@@ -55,6 +61,7 @@ defmodule Wrazzle.MixProject do
 
       # Code Analysis
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.10", only: :test},
       {:sobelow, "~> 0.13", only: [:dev, :test], runtime: false}
     ]
   end
@@ -77,7 +84,8 @@ defmodule Wrazzle.MixProject do
       "ci.checks": [
         "format --check-formatted",
         "credo --strict --verbose",
-        "sobelow --config"
+        "sobelow --config",
+        "coveralls"
       ]
     ]
   end
