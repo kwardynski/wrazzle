@@ -31,3 +31,8 @@ config :logger, level: :warning
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# JUnit formatter
+config :junit_formatter,
+  report_file: "test-report.xml",
+  report_dir: "#{File.cwd!()}/cover"

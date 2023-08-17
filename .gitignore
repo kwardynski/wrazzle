@@ -3,7 +3,9 @@
 /doc/
 /node_modules/
 /tmp/
-/cover/
+
+/cover/*
+!cover/.gitkeep
 
 /assets/node_modules/
 

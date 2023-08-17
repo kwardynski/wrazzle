@@ -62,6 +62,7 @@ defmodule Wrazzle.MixProject do
       # Code Analysis
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.10", only: :test},
+      {:junit_formatter, "~> 3.3", only: [:test]},
       {:sobelow, "~> 0.13", only: [:dev, :test], runtime: false}
     ]
   end
