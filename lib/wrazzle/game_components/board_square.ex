@@ -1,17 +1,21 @@
 defmodule Wrazzle.GameComponents.BoardSquare do
+  @moduledoc false
+
   defstruct [
     :index,
     :row,
     :column,
-    :occupied,
+    :tile,
     :bonus
   ]
+
+  @type bonus_types() :: :double_letter | :triple_letter | :double_word | :triple_word
 
   @type t() :: %__MODULE__{
     index: integer(),
     row: integer(),
     column: integer(),
-    occupied: boolean(),
+    tile: Tile.t() | nil,
     bonus: atom()
   }
 
@@ -20,11 +24,8 @@ defmodule Wrazzle.GameComponents.BoardSquare do
       index: index,
       row: row,
       column: column,
-      occupied: false,
+      tile: nil,
       bonus: bonus
     }
   end
-
-
-
 end
