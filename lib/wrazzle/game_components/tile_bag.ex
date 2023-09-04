@@ -3,7 +3,7 @@ defmodule Wrazzle.GameComponents.TileBag do
 
   alias Wrazzle.GameComponents.Tile
 
-  defp tile_settings() do
+  defp tile_settings do
     [
       {"A", 9, 1},
       {"B", 2, 3},
@@ -38,10 +38,11 @@ defmodule Wrazzle.GameComponents.TileBag do
   @doc """
   Initiate a new bag of 100 tiles
   """
-  @spec new() :: [Tile.t()]
-  def new(), do: fill_bag([], tile_settings())
+  @spec new :: [Tile.t()]
+  def new, do: fill_bag([], tile_settings())
 
   defp fill_bag(bag, []), do: bag
+
   defp fill_bag(bag, [{letter, count, value} | tile_settings]) do
     Tile.new(letter, value)
     |> List.duplicate(count)
