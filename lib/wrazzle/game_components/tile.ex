@@ -1,4 +1,6 @@
 defmodule Wrazzle.GameComponents.Tile do
+  @moduledoc false
+
   defstruct [:letter, :value]
 
   @type t() :: %__MODULE__{
