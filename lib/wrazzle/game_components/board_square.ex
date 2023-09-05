@@ -16,7 +16,7 @@ defmodule Wrazzle.GameComponents.BoardSquare do
     row: integer(),
     column: integer(),
     tile: Tile.t() | nil,
-    bonus: atom()
+    bonus: bonus_types() | nil
   }
 
   def new(index, row, column, bonus \\ nil) do
@@ -28,4 +28,6 @@ defmodule Wrazzle.GameComponents.BoardSquare do
       bonus: bonus
     }
   end
+
+  def add_bonus(%__MODULE__{} = board_square, bonus), do: %{board_square | bonus: bonus}
 end
