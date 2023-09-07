@@ -8,6 +8,7 @@ defmodule Wrazzle.GameComponents.Tile do
           value: integer()
         }
 
+  @spec new(String.t(), integer()) :: Tile.t()
   def new(letter, value) do
     %__MODULE__{
       letter: letter,
